@@ -1,0 +1,24 @@
+{
+  "name": "blog-app-sequelize",
+  "version": "0.0.1",
+  "description": "Solution to blog app with sequelize challenge'",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "NODE_ENV=test mocha"
+  },
+  "dependencies": {
+      "body-parser": "^1.15.2",
+      "express": "^4.14.0",
+      "morgan": "^1.7.0",
+      "pg": "^6.1.2",
+      "pg-hstore": "^2.3.2",
+      "sequelize": "^3.29.0"
+    },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "faker": "^3.1.0",
+    "mocha": "^3.2.0"
+  }
+}

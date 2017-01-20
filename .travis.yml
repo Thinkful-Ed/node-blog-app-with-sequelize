@@ -1,0 +1,6 @@
+language: node_js
+node_js: node
+services:
+  - postgres
+before_script:
+  - psql -c 'create database "blog-app-sequelize_TEST";' -U postgres
