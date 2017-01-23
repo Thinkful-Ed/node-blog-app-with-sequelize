@@ -150,34 +150,4 @@ describe('Authors API resource', function() {
         });
       });
   });
-
-  describe('DELETE endpoint', function() {
-
-    it('should delete an author by id', function() {
-
-      let author;
-
-      return Author
-        .findOne()
-        .then(function(_author) {
-          author = _author;
-          return chai.request(app).delete(`/authors/${author.id}`);
-        })
-        .then(function(res) {
-          res.should.have.status(204);
-          return Author.findById(author.id);
-        })
-        .then(function(_author) {
-          should.not.exist(_author);
-          return Comment.count({where: {author_id: author.id}});
-        })
-        .then(function(commentCount) {
-          commentCount.should.equal(0);
-          return Post.count({where: {author_id: author.id}});
-        })
-        .then(function(postCount) {
-          postCount.should.equal(0);
-        });
-    });
-  });
 });

@@ -15,7 +15,7 @@ CREATE TABLE posts (
     updated_at TIMESTAMP NOT NULL,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
-    author_id INTEGER REFERENCES authors ON DELETE SET NULL
+    author_id INTEGER REFERENCES authors
 );
 
 CREATE TABLE comments (

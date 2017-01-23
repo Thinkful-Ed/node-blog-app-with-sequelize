@@ -16,7 +16,7 @@ const Author = sequelize.define('Authors', {
 
     classMethods: {
       associate: function(models) {
-        Author.hasMany(models.Post, {as: 'posts'});
+        Author.hasMany(models.Post, {as: 'posts', onDelete: 'SET NULL'});
         Author.hasMany(models.Comment, {
           as: 'comments',
           foreignKey: { allowNull: false },

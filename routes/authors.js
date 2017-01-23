@@ -55,17 +55,6 @@ router.put('/:id', (req, res) => {
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-router.delete('/:id', (req, res) => {
-  return Author
-    .destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(() => res.status(204).end())
-    .catch(err => res.status(500).json({message: 'Internal server error'}));
-});
-
 router.get('/:id/comments', (req, res) => {
   return Author.findById(req.params.id, {
       include: [{model: Comment, as: 'comments'}]
