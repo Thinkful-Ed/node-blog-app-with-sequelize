@@ -6,11 +6,14 @@ const {Comment} = require('../models');
 router.post('/', (req, res) => {
 
   const requiredFields = ['comment', 'postId', 'authorId'];
-  requiredFields.forEach(field => {
-    if (! (field in req.body && req.body[field])) {
-        return res.status(400).json({message: `Must specify value for ${field}`});
-     }
-  });
+  for (let i=0; i<requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if (!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  }
 
   return Comment
     .create({
